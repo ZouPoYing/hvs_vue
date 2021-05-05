@@ -4,7 +4,7 @@
     <el-row type="flex" justify="center">
       <el-col :span="6">
         <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-          <el-form-item label="用户名" prop="username">
+          <el-form-item label="账号" prop="username">
             <el-input type="text" v-model="ruleForm.username" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="password">
@@ -38,7 +38,7 @@ export default {
   data () {
     var validateUsername = (rule, value, callback) => {
       if (value === '') {
-        callback(new Error('请输入用户名'))
+        callback(new Error('请输入账号'))
       } else {
         callback()
       }

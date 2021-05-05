@@ -4,7 +4,7 @@
     <el-row type="flex" justify="center">
       <el-col :span="6">
         <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-          <el-form-item label="用户名" prop="username">
+          <el-form-item label="账号" prop="username">
             <el-input maxlength="10" type="text" v-model="ruleForm.username" placeholder="请输入1-10位字符或数字"
                       autocomplete="off"></el-input>
           </el-form-item>
@@ -13,8 +13,8 @@
                       placeholder="请输入4-16位字符或数字" autocomplete="off" show-password></el-input>
           </el-form-item>
           <el-form-item>
-            <el-link @click="toRegist" :underline="false">立即注册</el-link>
-            <el-link @click="toForgetPassword" :underline="false">忘记密码</el-link>
+            <el-link style="padding: 0 10px 0 10px" @click="toRegist" :underline="false">立即注册</el-link>
+            <el-link style="padding: 0 10px 0 10px" @click="toForgetPassword" :underline="false">忘记密码</el-link>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>

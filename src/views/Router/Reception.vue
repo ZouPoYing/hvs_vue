@@ -33,6 +33,10 @@
             prop="email"
             label="邮箱">
           </el-table-column>
+            <el-table-column
+                    prop="address"
+                    label="地址">
+            </el-table-column>
           <el-table-column
             prop="processstep"
             label="状态">

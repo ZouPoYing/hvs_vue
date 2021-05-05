@@ -19,7 +19,7 @@
           </el-table-column>
           <el-table-column
             prop="username"
-            label=用户名>
+            label="工号">
           </el-table-column>
           <el-table-column
             prop="name"
@@ -31,7 +31,7 @@
           </el-table-column>
           <el-table-column
             prop="telephone"
-            label="电话号码">
+            label="科室电话">
           </el-table-column>
           <el-table-column
             prop="email"
@@ -59,7 +59,7 @@
           </el-table-column>
           <el-table-column
             prop="date"
-            label="时间">
+            label="注册时间">
           </el-table-column>
           <el-table-column
             label="操作"
@@ -81,11 +81,11 @@
     <el-row type="flex" justify="center">
       <el-col :span="18">
         <el-dialog
-          title="新增"
+          :title="title"
           :visible.sync="dialogVisible"
           width="30%">
           <el-form label-width="100px" class="demo-ruleForm" enctype="multipart/form-data">
-            <el-form-item label="用户名" prop="username">
+            <el-form-item label="工号" prop="username">
               <el-input maxlength="10" type="text" v-model="setForm.username"></el-input>
             </el-form-item>
             <el-form-item label="姓名" prop="name">
@@ -94,7 +94,7 @@
             <el-form-item label="密码" prop="password">
               <el-input maxlength="16" type="text" v-model="setForm.password"></el-input>
             </el-form-item>
-            <el-form-item label="电话号码" prop="telephone">
+            <el-form-item label="科室联系电话" prop="telephone">
               <el-input maxlength="11" type="text" v-model="setForm.telephone"></el-input>
             </el-form-item>
             <el-form-item label="邮箱" prop="email">
@@ -104,12 +104,6 @@
               <el-radio-group v-model="setForm.sex">
                 <el-radio label="男" border>男</el-radio>
                 <el-radio label="女" border>女</el-radio>
-              </el-radio-group>
-            </el-form-item>
-            <el-form-item label="用户类型" prop="usertype">
-              <el-radio-group :disabled="true" v-model="setForm.usertype">
-                <el-radio label="1" border>病人</el-radio>
-                <el-radio label="2" border>医生</el-radio>
               </el-radio-group>
             </el-form-item>
             <el-form-item label="科室" prop="department">
@@ -146,7 +140,8 @@ export default {
       tableData: [],
       setForm: {},
       dialogVisible: false,
-      isAdd: true
+      isAdd: true,
+      title: '新增'
     }
   },
   created() {
@@ -165,6 +160,7 @@ export default {
       this.setForm = {}
       this.setForm.sex = '男'
       this.setForm.usertype = '2'
+      this.title = '新增'
       this.dialogVisible = !this.dialogVisible
       this.isAdd = true
     },
@@ -197,6 +193,7 @@ export default {
       })
     },
     update(row) {
+      this.title = '修改'
       this.dialogVisible = true
       this.isAdd = false
       this.setForm = row
