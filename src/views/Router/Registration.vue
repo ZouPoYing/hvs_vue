@@ -237,6 +237,7 @@
         }).then(function(res){
           if (res.data.success) {
             self.tableData = res.data
+            self.$message.success('挂号成功！');
           } else {
             self.$message.error(res.data.msg);
           }

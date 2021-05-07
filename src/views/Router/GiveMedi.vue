@@ -83,7 +83,7 @@
         axios.post('http://localhost:9091/hvs/process/updateP1',{
           processid: row.processid,
           patient: row.patient,
-          userid: self.$store.state.user.userid
+          //userid: self.$store.state.user.userid
         }).then(function(res){
           if (res.data.success) {
             self.$message.success('取药确认成功');

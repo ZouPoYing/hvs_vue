@@ -150,6 +150,7 @@
         }).then(function(res){
           if (res.data.success) {
             self.$message.success('开就诊单成功');
+            self.getReception();
           } else {
             self.$message.error(res.data.msg);
           }
@@ -224,7 +225,7 @@
 </script>
 
 <style scoped>
-.el-checkbox__input{
+span.el-checkbox__input{
     left: 10px;
 }
 </style>
