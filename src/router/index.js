@@ -15,6 +15,7 @@ import MediManagement from "../views/Router/MediManagement";
 import PayAndVform from "../views/Router/PayAndVform";
 import GiveMedi from "../views/Router/GiveMedi";
 import Statistics from "../views/Router/Statistics";
+import ViewCf from "../views/Router/ViewCf";
 
 Vue.use(Router)
 
@@ -94,6 +95,11 @@ export default new Router({
       path: '/statistics',
       name: 'Statistics',
       component: Statistics
+    },
+    {
+      path: '/viewCf',
+      name: 'ViewCf',
+      component: ViewCf
     }
   ]
 })

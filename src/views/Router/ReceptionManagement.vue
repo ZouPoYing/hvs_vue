@@ -137,7 +137,7 @@
         <divider></divider>
         <el-row type="flex" justify="center">
             <el-col :span="6">
-                <p class="cf">患者编号：{{data.userid}}</p>
+                <p class="cf">患者编号：{{data.username}}</p>
             </el-col>
             <el-col :span="6">
                 <p class="cf">姓名：{{data.name}}</p>
@@ -298,11 +298,11 @@
       },
       addVform() {
         var self = this;
-        // if (self.fileid === '') {
-        //   self.$message.error('请先更新病历本');
-        //   self.dialog = !self.dialog
-        //   return
-        // }
+        if (self.fileid === '' || self.fileid === undefined) {
+          self.$message.error('请先更新病历本');
+          self.dialog = !self.dialog
+          return
+        }
         if (self.setForm.money === '' || self.setForm.money === undefined) {
           self.$message.error('请先获取医药费');
           return
@@ -320,8 +320,8 @@
           ji: self.setForm.ji
         }).then(function(res){
           if (res.data.success) {
-            self.$message.success('开就诊单成功');
             self.getReception();
+            self.$message.success('开就诊单成功');
           } else {
             self.$message.error(res.data.msg);
           }

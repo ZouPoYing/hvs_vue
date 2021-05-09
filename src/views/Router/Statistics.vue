@@ -2,18 +2,27 @@
     <div>
         <h1>统计</h1>
         <el-row type="flex" justify="center">
-            <el-col :span="6">
+            <el-col :span="4">
                 <p>统计维度：</p>
             </el-col>
-            <el-col :span="6">
+            <el-col :span="10">
                 时间：
-                <el-date-picker
-                        @change="change"
-                        v-model="tjdate"
-                        type="date"
-                        value-format="yyyy-MM-dd"
-                        placeholder="选择日期">
-                </el-date-picker>
+<!--                <el-date-picker-->
+<!--                        @change="change"-->
+<!--                        v-model="tjdate"-->
+<!--                        type="date"-->
+<!--                        value-format="yyyy-MM-dd"-->
+<!--                        placeholder="选择日期">-->
+<!--                </el-date-picker>-->
+              <el-date-picker
+                @change="change"
+                v-model="tjdate"
+                type="daterange"
+                range-separator="至"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期"
+                value-format="yyyy-MM-dd">
+              </el-date-picker>
 <!--                <el-select @change="change" v-model="tjdate" placeholder="请选择">-->
 <!--                    <el-option-->
 <!--                            v-for="item in options1"-->
@@ -23,7 +32,7 @@
 <!--                    </el-option>-->
 <!--                </el-select>-->
             </el-col>
-            <el-col :span="6">
+            <el-col :span="5">
                 部门：
                 <el-select @change="changeBM" v-model="tjdepartment" placeholder="请选择">
                     <el-option
@@ -34,7 +43,7 @@
                     </el-option>
                 </el-select>
             </el-col>
-            <el-col :span="6">
+            <el-col :span="5">
                 医生：
                 <el-select @change="change" v-model="tjdoctor" placeholder="请选择">
                     <el-option
@@ -142,7 +151,7 @@
       getStatisticsPie() {
         var self = this
         axios.post('http://localhost:9091/hvs/user/getStatisticsPie', {
-          tjdate: self.tjdate,
+          tjdate: JSON.stringify(self.tjdate),
           tjdepartment: self.tjdepartment,
           tjdoctor: self.tjdoctor
         }).then(function(res){
@@ -155,7 +164,7 @@
       getStatistics() {
         var self = this
         axios.post('http://localhost:9091/hvs/user/getStatistics', {
-          tjdate: self.tjdate,
+          tjdate: JSON.stringify(self.tjdate),
           tjdepartment: self.tjdepartment,
           tjdoctor: self.tjdoctor
         }).then(function(res){

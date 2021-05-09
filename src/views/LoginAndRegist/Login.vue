@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="login">
     <h1>登录</h1>
     <el-row type="flex" justify="center">
       <el-col :span="6">
@@ -103,5 +103,8 @@ export default {
 </script>
 
 <style scoped>
-
+#login{
+  background: url("../../assets/img/head.jpg") no-repeat;
+  background-size:100% 100%;
+}
 </style>
