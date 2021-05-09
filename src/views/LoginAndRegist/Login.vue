@@ -72,6 +72,7 @@ export default {
           }).then(function (res) {
             if (res.data.success) {
               self.$store.commit('getUserId',res.data.userid);
+              self.$store.commit('getName',res.data.name);
               self.$emit('login');
               self.$message.success('登录成功，即将跳转首页');
               setTimeout(() => {

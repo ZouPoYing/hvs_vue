@@ -7,14 +7,21 @@
             </el-col>
             <el-col :span="6">
                 时间：
-                <el-select @change="change" v-model="tjdate" placeholder="请选择">
-                    <el-option
-                            v-for="item in options1"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value">
-                    </el-option>
-                </el-select>
+                <el-date-picker
+                        @change="change"
+                        v-model="tjdate"
+                        type="date"
+                        value-format="yyyy-MM-dd"
+                        placeholder="选择日期">
+                </el-date-picker>
+<!--                <el-select @change="change" v-model="tjdate" placeholder="请选择">-->
+<!--                    <el-option-->
+<!--                            v-for="item in options1"-->
+<!--                            :key="item.value"-->
+<!--                            :label="item.label"-->
+<!--                            :value="item.value">-->
+<!--                    </el-option>-->
+<!--                </el-select>-->
             </el-col>
             <el-col :span="6">
                 部门：
@@ -60,7 +67,7 @@
     name: "Statistics",
     data() {
       return {
-        tjdate: '全部',
+        tjdate: '',
         tjdepartment: '全部',
         tjdoctor: '全部',
         options1: [{

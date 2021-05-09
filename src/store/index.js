@@ -31,6 +31,9 @@ const store = new Vuex.Store({
     getUserId(state,userid) {
       state.user.userid = userid
     },
+    getName(state,name) {
+      state.user.name = name
+    },
     clearUserCache(state) {
       state.user.userid = '',
       state.user.username = '',

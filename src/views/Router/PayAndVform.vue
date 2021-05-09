@@ -22,10 +22,6 @@
                             label="病因">
                     </el-table-column>
                     <el-table-column
-                            prop="medinames"
-                            label="药品">
-                    </el-table-column>
-                    <el-table-column
                             prop="money"
                             label="医药费">
                     </el-table-column>
