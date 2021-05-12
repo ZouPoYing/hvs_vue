@@ -127,7 +127,7 @@
         <h1>您没有正在接诊的病人，请先接诊病人</h1>
       </el-col>
     </el-row>
-    <el-button @click="dialog = true" style="position: fixed;bottom: 60px;right: 50px; z-index: 100;" type="primary">开就诊单</el-button>
+    <el-button @click="dialog = true" style="position: fixed;top: 350px;right: 50px; z-index: 100;" type="primary">开就诊单</el-button>
     <div v-if="print" id="printCons">
         <el-row>
             <el-col>

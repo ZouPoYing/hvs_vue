@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <h1>登录</h1>
+    <h1>门诊信息管理系统</h1>
     <el-row type="flex" justify="center">
       <el-col :span="6">
         <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
@@ -104,7 +104,10 @@ export default {
 
 <style scoped>
 #login{
-  background: url("../../assets/img/head.jpg") no-repeat;
-  background-size:100% 100%;
+  width: 100%;
+  height: 100%;
+  /*background: url("../../assets/img/head.jpg") no-repeat;*/
+  /*background-size:100% 100%;*/
+  //background: lightslategray;
 }
 </style>

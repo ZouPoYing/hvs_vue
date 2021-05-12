@@ -135,7 +135,7 @@
             <p class="cf">医药费：{{setForm.money}}</p>
           </el-col>
           <el-col :span="12">
-            <p class="cf">医生签名：{{name}}</p>
+            <p class="cf">医生签名：{{user.name}}</p>
           </el-col>
         </el-row>
       </div>
@@ -157,14 +157,26 @@
             setForm: [],
             print: false,
             name: this.$store.state.user.name,
-            cfdetail: []
+            cfdetail: [],
+            user: []
           }
       },
       created() {
         this.getMyCf();
         this.getDate();
+        this.getUser();
       },
       methods: {
+        getUser() {
+          var self = this;
+          axios.post('http://localhost:9091/hvs/user/getUserById', {
+            userid: this.$store.state.user.userid
+          }).then(function(res){
+            self.user = res.data
+          }).catch(function(err){
+            self.$message.error(err);
+          })
+        },
         goPrint(row){
           this.getMyCfdetail(row.cfid)
           this.data = row

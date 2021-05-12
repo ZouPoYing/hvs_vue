@@ -12,7 +12,7 @@
             <el-row v-else class="login" type="flex" justify="center" align="middle">
               <el-button @click="toLogin">请登录</el-button>
             </el-row>
-            <el-menu>
+            <el-menu style="background: lightblue">
               <el-menu-item v-for="(item, index) in app" :key="index" @click="routerJump(item.router)" :class="color">
                 <i class="el-icon-menu"></i>
                 <span slot="title">{{item.name}}</span>
@@ -109,6 +109,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background: lightblue;
   /*margin-top: 60px;*/
 }
 .user,.login {
