@@ -1,8 +1,23 @@
 <template>
   <div id="app">
-    <el-container style="height: 920px; border: 1px solid #eee">
+    <el-header>
+      <el-menu class="el-menu-demo" mode="horizontal" style="background: lightblue">
+          <el-row type="flex" justify="center">
+              <el-col :span="16">
+                  <p style="text-align: left;padding-left: 50px" >门诊信息管理系统</p>
+              </el-col>
+              <el-col :span="4">
+                  <p>{{username}}</p>
+              </el-col>
+              <el-col :span="4">
+                  <p @click="LogOut">退出</p>
+              </el-col>
+          </el-row>
+      </el-menu>
+    </el-header>
+    <el-container style="height: 860px; border: 1px solid #eee">
       <el-aside width="300px">
-        <el-row style="height: 920px;" class="tac">
+        <el-row style="height: 859px;" class="tac">
           <el-col>
             <el-row v-if="userid" class="user" type="flex" justify="center" align="middle">
               <el-col @click.native="toSetting()">
@@ -12,7 +27,7 @@
             <el-row v-else class="login" type="flex" justify="center" align="middle">
               <el-button @click="toLogin">请登录</el-button>
             </el-row>
-            <el-menu style="background: lightblue">
+            <el-menu style="background: lightblue;text-align: left">
               <el-menu-item v-for="(item, index) in app" :key="index" @click="routerJump(item.router)" :class="color">
                 <i class="el-icon-menu"></i>
                 <span slot="title">{{item.name}}</span>
@@ -41,10 +56,12 @@ export default {
   data() {
     return {
       userid: this.$store.state.user.userid,
+      username: this.$store.state.user.username,
       usertype: this.$store.state.user.usertype,
       audit: this.$store.state.user.audit,
       router: '',
       color: false,
+      isCollapse: true,
       app: []
     }
   },
@@ -52,6 +69,14 @@ export default {
     this.getUser()
   },
   methods: {
+    LogOut() {
+      this.$store.commit('clearUserCache');
+      this.getUser()
+      this.$message.success('注销成功，即将跳转登录页');
+      setTimeout(() => {
+        this.$router.push('/login')
+      }, 1000)
+    },
     getUser() {
       var self = this;
       if (this.$store.state.user.userid == '') {
@@ -109,7 +134,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background: lightblue;
+    background: lightblue;
   /*margin-top: 60px;*/
 }
 .user,.login {
